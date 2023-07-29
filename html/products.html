@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../css/products.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../css/products.css">
+    
+    
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .overflow img{
+        height: 40px;
+    }
+    .overflow div{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        padding:20px 10px;
+        
+    }
+    .overflow p{
+        margin-left: 10px;
+    }
+    .content{
+        width: 100%;
+    }
+    .container{
+        display:flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 20px 0;
+        margin: 0px 159.6px;
+    }
+    .overflow{
+        width: 300px;
+        height: 700px;
+        overflow: auto;
+        border: 1px solid #dadae5;
+
+    }
+    .products{
+        border: 1px solid #dadae5;
+    }
+    .name img{
+        height: 90px;
+    }
+    h1{
+        font-family:  condensed;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 38px;
+        padding: 8px 0px;
+    }
+    .name{
+        padding: 12px 0px;
+        margin-left: 30px;
+        width: 900px;
+    }
+    .detail{
+        display: flex;
+    }
+    .detail p{
+        margin-left: 20px;
+        font-family: Roboto;
+    }
+    .render h2{
+        font-family: condensed;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 32px;
+        padding: 8px 0px;
+        margin-top: 32px;
+        
+    }
+    .render{
+        margin-left: 27px;
+    }
+    hr{
+        opacity: 0.3;
+    }
+    .btn{
+        align-items: flex-start;
+        border-radius: 4px;
+        color: #ffb400;
+        display: inline-block;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+        margin: 12px 0px 0px;
+        padding: 10px 16px;
+        text-align: center;
+        border: 1px solid #ffb400 ;
+    }
+    .item{
+        background-color: #ffffff;
+        border-radius: 4px;
+        box-shadow: #f0f0f0 0px 0px 0px 2px;
+    }
+    .render__layout{
+        display: grid;
+        gap:20px;
+        grid-template-columns:280px 280px 280px;
+        padding: 8px 0px;
+       
+    }
+    .item img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .render__container:hover {
+        position: relative;
+        top: -10px; 
+        z-index: 1;
+       
+    }
+    .render__container{
+        transition:  5s ease-in-out ;
+    }
+    .item div {
+        display: flex;
+        justify-content: center;
+    }   
+    .pagination{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin: 24px 0px 8px;
+        font-weight: 700;
+        align-items: center;
+    }
+    .page{
+       
+        background-color: #f4f4f5;
+        border-radius: 2px;
+        color: #ffffff;
+        display: inline-block;
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 28px;
+        margin: 0px 5px;
+        padding: 0 12px;
+        text-align: center;
+        color: black;
+    }
+
+  
+    .number{
+        display: inline-block;
+        font-weight: 700;
+        text-align: center;
+        font-size: 0;
+        align-items: center;
+    }
+    .productDetail{
+        width: 413px;
+        height: 530px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0  0 5px rgba(0, 0, 0, 0.8);
+ 
+    }
+
+    .productDetail__container{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;       
+        /* display: grid;
+        grid-template-columns: 450px;
+        grid-template-rows: 190px 40px 40px 190px ; */
+  
+    }
+    .productDetail__container img{
+        margin-top: 20px;
+        width: 84%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+
+    }
+    .more{
+        font-size: 15px;
+    }
+    .call{
+        font-size: 30px;
+    }
+    .price{
+        font-size: 20px;
+    }
+    .productDetail__container span{
+        margin-top: 8px;
+    }
+    .name{
+        position: relative;
+    }
+    .productDetail{
+        position: absolute;
+        left:660px;
+        top:700px;
+        z-index: 2;
+    }
+    .productDetail{
+        display: none;
+    }
+    .brand{
+        font-size: 15px;
+    }
+    .ten{
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .price{
+        color: #576b95;
+    }
+    .item .brand{
+        display: block;
+        margin-left: 20px;
+    } 
+    .hoverLogo:hover{
+        background-color:#f1f1f1 ;
+    }
+    .all{
+        border:1px solid #576b95;
+        padding: 10px;
+    }
+    .sidebar{
+        position:-webkit-sticky;
+        position: sticky;
+        top:0px;
+    }
+    .all a{
+        text-decoration: none;
+        color: black;
+    }
+    .now{
+        background-color: #ffb400;
+    }
+
+</style>
+<body>
+    <header>
+    <div class="video-container">
+           <div class="background"></div>
+            
+        <div class="head__headerwrap"  >
+                
+            <div class="header" id="Header" >
+              
+                <!-- header nav -->
+                <ul class="options">
+                    <li><a href="#">Các dòng</a></li>
+                    <li><a href="#">Liên hành</a></li>
+                    
+                    <li><a href="#">Phụ kiện</a></li>
+                    <li><a href="#">Trang phục</a></li>
+                    
+                    <li><a href="#">Hỗ trợ</a></li>
+                </ul>
+
+                  <!-- logo -->
+                <img src="../images/logo.svg" alt="Royal Enfield Logo" class="logo">
+                
+                <!-- search bar -->
+                <div class="searchBar">
+                    <input type="text" class="searchBar__input" placeholder="Tìm kiếm...">
+                    <a class="searchBar__button">
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- cart -->
+                <a class="cart" href="./html/cart.html">
+                    <span   class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                </a>
+                
+                <!-- login register -->
+                <ul class="loginRegister">
+                    <li><a href="./html/login.html">Đăng nhập</a></li>
+                    <li><a href="register.html">Đăng ký</a></li>
+                </ul>
+
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="content">
+            <div class="container">
+                <div class="sidebar">
+                    <div onclick="allProduct()" class="all">
+                        Hiển thị tất cả sản phẩm
+                    </div>
+
+                     <div class="overflow">
+                        <div>
+                            <img src="../images/img/beneli.webp" alt="">
+                        <p>Beneli</p>
+                        </div>
+                    </div>
+                </div>
+               
+                
+                <div class="products" >
+                    <div class="name">
+                        <div class="intro">
+                            <h1>Bộ lọc tìm kiếm</h1>
+                            <div class="detail">
+                                
+                            </div>
+                            <div>
+                                Giá tiền: <input type="range" max="100000" value="" onchange="">
+                            </div>
+                        </div>
+                       
+                        </div>
+                        <div class="productDetail">
+
+                            <div class="productDetail__container">
+                            </div>
+
+                        </div>
+<!-- *****************render sản phẩm************************ -->
+                        <div class="render">
+                            <h2>Xe Máy Tại Việt Nam</h2>
+                    
+                            <div class="render__layout">
+                            </div>
+
+                            <div class="pagination">
+                                <span onclick="back()" class="material-symbols-outlined">
+                                    chevron_left
+                                </span>
+
+                               <ul class="number">
+                                    <!-- <li>1</li>
+                                    <li>2</li> -->
+                               </ul>
+
+                                <span onclick="next()" class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                                
+                            </div>
+                           
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script >
+        let lastScrollTop=0
+
+    window.addEventListener("scroll", function() { 
+    
+    let header = document.getElementById("Header");
+    let headerHeight = 350;
+    let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollPosition > headerHeight) {
+    header.classList.add("fixed");
+    if(lastScrollTop>scrollPosition){
+        header.classList.add('top') 
+    }
+    else{
+        header.classList.remove('top')
+    }
+    } else{
+    header.classList.remove('top')
+    header.classList.remove("fixed");    
+    }
+    lastScrollTop = scrollPosition;
+    });
+
+        let product =JSON.parse(localStorage.getItem("product"))||[];1111111111111111
+        
+    /* *****************************phân trang**************************** */
+        let start,end;
+        let perpage=6;
+        let currentPage=1;
+        let totalPage=0;
+
+
+   /* ***********************tổng trang hiện tại***************************** */     
+        function nowtotalPage(warr){
+            return  totalPage=Math.ceil(warr.length/perpage);
+        }
+        nowtotalPage(product)
+
+
+        function caculateStartEnd(current){
+            start=(current-1)*perpage;
+            end=current*perpage;
+        }
+        caculateStartEnd(currentPage)
+    /* ******************************************************************** */
+        function pagination(list){
+            let text='';
+            for(let i=0;i<list;i++){
+
+                text+=
+                `
+                <li class='page' onclick='pageNow(${i+1})'>${i+1}</li>
+                `
+            }
+            document.getElementsByClassName('number')[0].innerHTML=text
+        }
+        pagination(totalPage)
+    /* ***************************trang hiện tại********************** */  
+        function pageNow(page){
+            currentPage=page;
+            let  pages=document.getElementsByClassName('page'); 
+            console.log('pagenow',pages.length);
+            for(let i=0;i<pages.length;i++){
+                if(page-1 == i){
+                    pages[i].classList.add('now');
+                }else{
+                    pages[i].classList.remove('now')
+                }
+            }
+            
+        }
+  
+        /* ***************************************************** */
+        function next(){
+            currentPage=currentPage+1;
+            if(currentPage>totalPage){
+                currentPage=totalPage
+            }
+            caculateStartEnd(currentPage);
+            render()
+            pageNow(currentPage);
+        }
+
+        function back(){
+            if(currentPage==1){
+                return;
+            }
+        currentPage--;
+        caculateStartEnd(currentPage);
+        render()
+        pageNow(currentPage)
+        }
+    /* ********************************render*********************** */
+        function render(){
+            let a=JSON.parse(localStorage.getItem('updateProduct'))
+            let element='';
+            if(a){
+                for(let i=0;i<a.length;i++){
+                    if(i>=start&&i<end){
+                        element+=
+                    `
+                                    <div class="render__container">
+                                        <div class="item">
+                                            <img  src="${a[i].picture}" alt="">
+                                            <div class="brand">${a[i].brand}</div>    
+                                            <div class='ten'>${a[i].name}</div>
+                                            <div class='price'>${a[i].price}</div>
+                                            <div onclick="show(${a[i].id})" class="btn">Xem dòng xe</div>
+                                        </div>
+                                    </div>
+                    `
+                    }
+
+                }
+                // document.getElementsByClassName('render__layout')[0].innerHTML=element
+                // pagination(totalPage) 
+                
+            }else{
+                for(let i=0;i<product.length;i++){
+                    if(i>=start&&i<end){
+                        element+=
+                    `
+                                    <div class="render__container">
+                                        <div class="item">
+                                            <img  src="${product[i].picture}" alt="">
+                                            <div class="brand">${product[i].brand}</div>    
+                                            <div class='ten'>${product[i].name}</div>
+                                            <div class='price'>${product[i].price}</div>
+                                            <div onclick="show(${product[i].id})" class="btn">Xem dòng xe</div>
+                                        </div>
+                                    </div>
+                    `
+                    }
+
+                }
+               
+            }   
+            document.getElementsByClassName('render__layout')[0].innerHTML=element
+            pagination(totalPage) 
+        }
+        render()
+
+    function allProduct(){
+        localStorage.removeItem('updateProduct');
+        currentPage=1
+        caculateStartEnd(currentPage)
+        nowtotalPage(product)
+        render();
+        
+    }
+    /* *********************brand************************3333333333333333333 */
+        function show(id) {
+            let element='';
+            document.getElementsByClassName('productDetail')[0].style.display='block';
+            for(let i=0;i<product.length;i++){
+                if(id==product[i].id){
+                    element+=
+                `
+                                <div class="productDetail__container">
+                                    <span onclick="exit()" class="material-symbols-outlined exit">
+                                        close
+                                    </span>
+                                    <img src="${product[i].picture}" alt="">
+                                    <div class="brand">${product[i].brand}</div>
+                                    <div class="call">${product[i].name}</div>
+                                    <div class="price">${product[i].price}</div>
+                                    <div class="more">
+                                        ${product[i].detail}
+                                    </div>
+                                    <span   class="material-symbols-outlined">
+                                        shopping_cart
+                                    </span>
+
+                                </div>
+                `
+                }
+            
+            }
+            document.getElementsByClassName('productDetail')[0].innerHTML=element;
+        }
+    /* ****************************exit*************************** */
+        function exit() {
+            document.getElementsByClassName('productDetail')[0].style.display='none'
+
+        }
+
+    /* *******************************render brand************************* */
+        let logo = JSON.parse(localStorage.getItem('logo'))||[]
+        function renderLogo(){
+            let element='';
+            for(let i=0;i<logo.length;i++){
+                element+=
+                `
+                        <div class='hoverLogo' onclick="change('${logo[i].name}')">
+                            <img src="${logo[i].img}" alt="">
+                            <p>${logo[i].name}</p>
+                        </div>
+                        <hr>
+                `
+                }
+                document.getElementsByClassName('overflow')[0].innerHTML=element
+        }
+        renderLogo()
+       
+        function change(name){
+            let updateProduct=JSON.parse(localStorage.getItem('updateProduct'))||[];
+            let element='';
+            let para=''
+            let filterList=[];
+            currentPage=1;
+            caculateStartEnd(currentPage);
+        
+            for(let i=0;i<product.length;i++){
+                if(name==product[i].brand){
+                    filterList.push(product[i])
+                }       
+            }
+            localStorage.setItem('updateProduct',JSON.stringify(filterList));
+            let a=JSON.parse(localStorage.getItem('updateProduct'));  
+            nowtotalPage(a)
+            caculateStartEnd(currentPage)
+            console.log(a);
+            console.log('up',totalPage);
+            for(let i=0 ;i<a.length;i++){
+                if(i>=start&&i<end){
+                                element+=
+                `
+                                    <div class="render__container">
+                                        <div class="item">
+                                            <img  src="${a[i].picture}" alt="">
+                                            <div class="brand">${a[i].brand}</div>    
+                                            <div class='ten'>${a[i].name}</div>
+                                            <div class='price'>${a[i].price}</div>
+                                            <div onclick="show(${a[i].id})" class="btn">Xem dòng xe</div>
+                                        </div>
+                                    </div>
+                `
+                }
+            }
+            // let totalUpdate=Math.ceil(a.length/perpage);
+            pagination(totalPage);
+            document.getElementsByClassName('render__layout')[0].innerHTML=element;
+
+            for(let j=0;j<logo.length;j++){
+                if(logo[j].name==name){
+                    para=
+                `
+                            <h1>${logo[j].name}</h1>
+                            <div class="detail">
+                                <img src="${logo[j].img}" alt="">
+                                <p>
+                                    ${logo[j].intro}
+                                </p>
+                            </div>
+                `
+                }
+            }
+            document.getElementsByClassName('intro')[0].innerHTML=para;
+            
+        }
+        
+
+
+    
+    </script>
+    
+</body>
+</html>
