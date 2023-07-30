@@ -209,6 +209,7 @@
         left:660px;
         top:700px;
         z-index: 2;
+        height: 700px;
     }
     .productDetail{
         display: none;
@@ -246,7 +247,63 @@
     .now{
         background-color: #ffb400;
     }
+    .icon{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .commentIcon span:hover{
+        color: red;
+    }
+    .commentIcon div:hover{
+        color: red;
+    }
+    .commentIcon{
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+    .commentContain{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 5px 10px 5px;
+        
+    }
+    .comment{
+        width: 400px;
+        /* height: 300px; */
+        /* background-color: #576b95; */
+        border: 2px solid #576b95;
+        border-radius: 5px;
+        background-color: #c1c1c1;
+        position: absolute;
+        left: -218px;
+        top:175px;
+        display: none;
 
+    }
+    .infor{
+        display: flex;
+        justify-content: space-between;
+    }
+    .myComment{
+        width: 100%;
+        padding: 5px 5px 10px 5px;
+    }
+    .text{
+        object-fit: contain;
+        width: 400px;
+        word-break: break-all;
+    }
+    .line{
+        border-color:black;
+    }
+    .textarea{
+        height: 30px;
+        width: 100%;
+    }
 </style>
 <body>
     <header>
@@ -321,10 +378,65 @@
                         <div class="intro">
                             <h1>Bộ lọc tìm kiếm</h1>
                             <div class="detail">
-                                
+                                <!-- <div class="productDetail__container">
+                                    <div class="icon">
+                                        <span onclick="comment()" class="material-symbols-outlined">
+                                            chat
+                                        </span>
+                                        <span onclick="exit()" class="material-symbols-outlined exit">
+                                            close
+                                        </span>
+                                        <span  onclick="add()" class="material-symbols-outlined">
+                                            shopping_cart
+                                        </span>
+                                    </div>
+                                    <img src="${product[i].picture}" alt="">
+                                    <div class="brand">${product[i].brand}</div>
+                                    <div class="call">${product[i].name}</div>
+                                    <div class="price">${product[i].price}</div>
+                                    <div class="more">
+                                        ${product[i].detail}
+                                    </div>
+
+
+                                </div> -->
                             </div>
                             <div>
                                 Giá tiền: <input type="range" max="100000" value="" onchange="">
+                            </div>
+                            <!-- comment -->
+                            <div class="comment"> 
+                                <div class="renderInputComment">
+                                    <div class="inputComment">
+                                        <div>Tên người dùng</div>
+                                        <textarea class="textarea" name="" id="" cols="30" rows="10"></textarea>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="renderMyComment">
+                                    <!-- <div class="myComment">
+                                        <div class="infor">
+                                            <div>Tên người dùng</div>
+                                            <div>Thời gian comment</div>
+                                        </div>
+    
+                                        <div class="commentContain">
+                                            <div class="text">Nội dung comment:wdsadasdasdasaacccccccccccccccccccccccdddddddddddddddddddddddddddddda</div>
+                                            <div class="commentIcon">
+                                                <span class="material-symbols-outlined">
+                                                    delete
+                                                </span>
+                                                <div>Sửa</div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <hr class="line"> -->
+    
+                                </div>
+
+
                             </div>
                         </div>
                        
@@ -364,6 +476,7 @@
                 </div>
             </div>
         </div>
+        
 
     </section>
 
@@ -391,7 +504,8 @@
     lastScrollTop = scrollPosition;
     });
 
-        let product =JSON.parse(localStorage.getItem("product"))||[];1111111111111111
+        let product =JSON.parse(localStorage.getItem("product"))||[];
+        localStorage.removeItem('updateProduct');
         
     /* *****************************phân trang**************************** */
         let start,end;
@@ -437,8 +551,10 @@
                     pages[i].classList.remove('now')
                 }
             }
-            
+            caculateStartEnd(currentPage);
+            render() 
         }
+        pageNow(currentPage)
   
         /* ***************************************************** */
         function next(){
@@ -455,10 +571,10 @@
             if(currentPage==1){
                 return;
             }
-        currentPage--;
-        caculateStartEnd(currentPage);
-        render()
-        pageNow(currentPage)
+            currentPage--;
+            caculateStartEnd(currentPage);
+            render()
+            pageNow(currentPage)
         }
     /* ********************************render*********************** */
         function render(){
@@ -482,8 +598,6 @@
                     }
 
                 }
-                // document.getElementsByClassName('render__layout')[0].innerHTML=element
-                // pagination(totalPage) 
                 
             }else{
                 for(let i=0;i<product.length;i++){
@@ -519,29 +633,34 @@
         
     }
     /* *********************brand************************3333333333333333333 */
+    let productId=JSON.parse(localStorage.getItem('productId'))||[]
         function show(id) {
             let element='';
             document.getElementsByClassName('productDetail')[0].style.display='block';
             for(let i=0;i<product.length;i++){
                 if(id==product[i].id){
+                    localStorage.setItem('productId',JSON.stringify(id))
                     element+=
                 `
-                                <div class="productDetail__container">
-                                    <span onclick="exit()" class="material-symbols-outlined exit">
-                                        close
-                                    </span>
+                        <div class="productDetail__container">
+                                    <div class="icon">
+                                        <span onclick="renderComment(${product[i].id})" class="material-symbols-outlined">
+                                            chat
+                                        </span>
+                                        <span onclick="exit()" class="material-symbols-outlined exit">
+                                            close
+                                        </span>
+                                        <span  onclick="add()" class="material-symbols-outlined">
+                                            shopping_cart
+                                        </span>
+                                    </div>
                                     <img src="${product[i].picture}" alt="">
                                     <div class="brand">${product[i].brand}</div>
                                     <div class="call">${product[i].name}</div>
                                     <div class="price">${product[i].price}</div>
                                     <div class="more">
                                         ${product[i].detail}
-                                    </div>
-                                    <span   class="material-symbols-outlined">
-                                        shopping_cart
-                                    </span>
-
-                                </div>
+                        </div>
                 `
                 }
             
@@ -551,7 +670,9 @@
     /* ****************************exit*************************** */
         function exit() {
             document.getElementsByClassName('productDetail')[0].style.display='none'
-
+            localStorage.removeItem('productId');
+            document.getElementsByClassName('comment')[0].style.display='none'
+            
         }
 
     /* *******************************render brand************************* */
@@ -629,9 +750,127 @@
             
         }
         
+        /* ***********************************push comment***************************** */
+        let comment = JSON.parse(localStorage.getItem('comment'))||[]
+        
+        function send() {
+            let productId=JSON.parse(localStorage.getItem('productId'));
+            let comment = JSON.parse(localStorage.getItem('comment'))||[]
+            console.log(comment);
+            let checkLogin=JSON.parse(localStorage.getItem('checkLogin'))
+            let users = JSON.parse(localStorage.getItem('users'));
+            let userId = checkLogin;
+            
+            let commentText= document.getElementsByClassName('textarea')[0].value;
+
+            function layThoiGianHienTai() {
+            return  thoiGianHienTai = new Date()
+            }
+            let userName = '';
+            // console.log(checkLogin==users[0].idUser);
+            for(let i=0;i<users.length;i++){
+                if(checkLogin==users[i].idUser){
+                    userName=users[i].username;
+                }   
+            }
+            
+            let userComment={
+                userId:userId,
+                comment:commentText,
+                userName:userName,
+                time:layThoiGianHienTai(),
+                productId:productId,
+            }
+            for( let i=0 ;i<comment.length;i++){
+                if(comment[i].productId==productId && checkLogin==comment[i].userId){
+                    comment.splice(i,1);
+                }
+            }
+            comment.push(userComment);
+            localStorage.setItem('comment',JSON.stringify(comment));
+            renderComment(productId);
+        }
 
 
+
+        /* *******************************show comment****************************** */
+        
+        function renderComment(id){
+           
+            document.getElementsByClassName('comment')[0].style.display='block'
+            let checkLogin=JSON.parse(localStorage.getItem('checkLogin'));
+            let comment = JSON.parse(localStorage.getItem('comment'));
+            let users = JSON.parse(localStorage.getItem('users'));
+
+
+
+            if(checkLogin){
+                let element1=''
+                for(let i=0;i<users.length;i++){
+                    if(checkLogin==users[i].idUser){
+                        element1=
+                        `
+                                    <div class="inputComment">
+                                        <div>${users[i].username}</div>
+                                        <textarea class="textarea" name="" id="" cols="30" rows="10"></textarea>
+                                        <div onclick="send()">Gửi</div>
+                                    </div>
+                        `
+                    }
+                }
+
+                document.getElementsByClassName('renderInputComment')[0].innerHTML=element1;
+
+            }
+
+            let element='';
+            for(let j=0;j<comment.length;j++){
+                if(comment[j].productId==id){
+                    element+=
+                `
+                                    <div class="myComment">
+                                        <div class="infor">
+                                            <div>${comment[j].userName}</div>
+                                            <div>${comment[j].time}</div>
+                                        </div>
     
+                                        <div class="commentContain">
+                                            <div class="text">${comment[j].comment}</div>
+                                            <div class="commentIcon">
+                                                <span onclick='deleteComment(${comment[j].userId})' class="material-symbols-outlined">
+                                                    delete
+                                                </span>
+                                                <div>Sửa</div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <hr class="line">
+                `
+                }
+
+            }
+
+            document.getElementsByClassName('renderMyComment')[0].innerHTML=element;
+
+            for(let i=0;i<comment.length;i++){
+                if(checkLogin == comment[i].userId && comment[i].productId==id){
+                    document.getElementsByClassName('textarea')[0].innerHTML=comment[i].comment
+                }
+            }
+
+        }
+
+        function deleteComment(ID){
+            let comment = JSON.parse(localStorage.getItem('comment'))
+            for(let i=0;i<comment.length;i++){
+            if(comment[i].userId==ID){
+                comment.splice(i,1);
+                localStorage.setItem('comment',JSON.stringify(product));
+                renderComment(ID);
+                }
+            }
+        }
     </script>
     
 </body>

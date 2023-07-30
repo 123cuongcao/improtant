@@ -43,7 +43,8 @@ function register(e) {
         password:password,
         username:username,
         cart:[],
-        idUser:createId()
+        idUser:createId(),
+        comment:[]
     }
     let checkRegister=users.find((item)=>{
         return item.email==email;
@@ -53,7 +54,6 @@ function register(e) {
     }
    
     users.push(userInfor);
-    console.log('111');
     localStorage.setItem('users',JSON.stringify(users));
     window.location.href='../html/login.html'
 
