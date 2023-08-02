@@ -3,7 +3,7 @@ function isEmail(email) {
 }
 
 function createId() {
-    return Math.floor(Math.random() * 9999999999999 + new Date().getMilliseconds())
+    return (Math.floor(Math.random() * 9999999999999 + new Date().getMilliseconds())).toString()
 }
 
 let users = JSON.parse(localStorage.getItem("users"))||[];
@@ -13,17 +13,14 @@ let users = JSON.parse(localStorage.getItem("users"))||[];
 //     email:'zaditcuong@gmail.com',
 //     password:1234,
 //     username:'admin',
+//     cart:[],
 //     idUser:createId()
 // }
 // users.push(userInfor);
-// localStorage.setItem('users',JSON.stringify(users));
+localStorage.setItem('users',JSON.stringify(users));
 
 
-function myFunction(text) {
-    let x = document.getElementById("snackbar");
-    x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-  }
+
 function register(e) {
     e.preventDefault();
     let email = document.getElementById('email').value;
@@ -32,10 +29,12 @@ function register(e) {
     let confirmPassword = document.getElementById('confirmPassword').value;
 
     if(!isEmail(email)){
+        myFunction('email không đúng định dạng')
         return;
     }
     
     if(password!=confirmPassword || password.length<4){
+        myFunction('kiểm tra lại mật khẩu')
         return;
     }
     let userInfor={
@@ -44,12 +43,12 @@ function register(e) {
         username:username,
         cart:[],
         idUser:createId(),
-        comment:[]
     }
     let checkRegister=users.find((item)=>{
         return item.email==email;
     })
     if(checkRegister){
+        myFunction('email đã tồn tại')
         return;
     }
    
@@ -59,5 +58,11 @@ function register(e) {
 
 }
 
+function myFunction(text) {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    x.innerHTML = text;
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
 
   

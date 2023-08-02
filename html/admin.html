@@ -33,7 +33,7 @@
     }
     .overflow{
         width: 300px;
-        height: 740px;
+        height: 755px;
         border: 1px solid #dadae5;
         border-radius: 5px;
         background-color:rgba(255, 180, 0,0.4);
@@ -134,7 +134,7 @@
         width: 280px;
         font-size: 20px;
         font-family:  condensed;
-        padding: 10px;
+        padding: 5px;
         border-radius: 5px;
         
     }
@@ -155,7 +155,7 @@
         text-align: center;
         inline-size: 180px;
         margin-left: 45px;
-        margin-top: 15px;
+        /* margin-top: 15px; */
     }
     .brand{
         font-size: 15px;
@@ -167,6 +167,84 @@
     .price{
         color: #576b95;
     }
+    .item{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        padding: 12px;
+    }
+    .users{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        /* margin-left: 90px; */
+        /* inline-size:180px; */
+        /* text-align: center; */
+        text-align: center;
+        align-items: center;
+    }
+    .manageuser{
+        margin-right: 16px;
+        border-radius: 10px;
+        background-color:rgb(5, 80, 185);
+        width: 100%;
+        display: block;
+        padding: 20px;
+        color: white;
+        font-weight: 700;
+    }
+    main {
+flex: 3;
+padding: 10px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+table th, table td {
+border: 1px solid #ccc;
+padding: 10px;
+}
+
+table th {
+background-color: #a74949;
+color: #fff;
+}
+
+.maneger{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    font-size: 20px;
+}
+span{
+    padding: 10px 15px;
+    background-color: #bc8282;
+    border-radius: 5px;
+}
+.retype{
+    display: flex;
+}
+.retypeContainer{
+    margin-left: 34%;
+    display: block;
+}
+.retype input{
+    padding: 10px;
+    width: 200px;
+}
+
+.qlsp{
+    background-color: #db6525;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    font-weight: 700;
+    border-radius: 10px;
+    
+}
 </style>
 <body>
 
@@ -182,6 +260,7 @@
                     <input type="nunber" id="price">
 
                     <div for="">Hãng</div>
+
                     <select name="" id="brand">
                         <option value="BMW">BMW</option>
                         <option value="Benelli">Benelli</option>
@@ -190,6 +269,9 @@
 
                     </select>
 
+                    <div>Số lượng</div>
+                    <input id="all" type="number">
+
                     <div for="">Hình</div>
                     <input type="text"  placeholder="../images/img/img6.jpg" id="picture">
 
@@ -197,18 +279,40 @@
                     <textarea class="textarea" name="" id="detail" cols="30" rows="10"></textarea>
 
                     <div onclick="renderManegerProduct()" class="add">Thêm sản phẩm</div>
+
+                    <div><a href="../html/products.html">Về trang sản phẩm</a></div>
                     
                 </div>
                 
                 <div class="products" >
                     <div class="name">
+                        <div style="display: flex;">
+                            
+                            <div style="width: 100%;">
+                                <div onclick="render()" class="qlsp">Quản lý sản phẩm</div>
+                            </div>
+                          
+                            <div class="users"><div onclick="manage()" class="manageuser">Quản lý users</div></div>
+                        </div>
 
                         <div class="render">
 
-                            <div class="render__layout">
-                                
+                            <div class="render__layout ">
                             </div>
                         </div>
+
+                        <div class="renderUser">
+                            <!-- <div class="maneger">
+                                <div>Id</div>
+                                <div>Gmail</div>
+                                <div>User</div>
+                                <div >
+                                    <span>Xóa</span>
+                                    <span>Sửa</span>
+                                </div>
+                            </div> -->
+                        </div>
+ 
 
                     </div>
                 </div>
@@ -228,6 +332,7 @@
             let brand=document.getElementById('brand').value;
             let picture =document.getElementById('picture').value;
             let detail=document.getElementById('detail').value;
+            let all=document.getElementById('all').value;
             
             let productItem={
                 name:name,
@@ -236,7 +341,8 @@
                 picture:picture,
                 detail:detail,
                 id:createId(),
-            
+                all:all,
+                quantity:1
             }
             
             let checkId=localStorage.getItem('id');
@@ -250,7 +356,6 @@
                         localStorage.removeItem('id');
                         document.getElementsByClassName('add')[0].innerHTML='Thêm sản phẩm'
                         return;
-                        
                     }
                 }
             }
@@ -261,6 +366,19 @@
         }
 
         function render(){
+            document.getElementsByClassName('overflow')[0].style.display='block';
+            document.getElementsByClassName('render__layout')[0].style.display='grid';
+            document.getElementsByClassName('renderUser')[0].style.display='none';
+
+            
+
+
+            
+            
+            const VND = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+            });
             product = JSON.parse(localStorage.getItem('product'))||[]
             let element=''
             for(let i=0 ;i <product.length;i++){
@@ -268,10 +386,11 @@
                 `
                                 <div class="render__container">
                                     <div class="item">
+                                        <div> Số lượng: ${product[i].all}</div>
                                         <img  src="${product[i].picture}" alt="">
                                         <div class="brand">${product[i].brand}</div>
                                         <div class='ten'>${product[i].name}</div>
-                                        <div class='price'>${product[i].price}</div>
+                                        <div class='price'>${VND.format(product[i].price)}</div>
                                         <div onclick='deleteProduct(${product[i].id})' class="btn">Xóa</div>
                                         <div onclick='edit(${product[i].id})' class="edit">Sửa</div>
                                     </div>
@@ -280,7 +399,7 @@
             }
             document.getElementsByClassName('render__layout')[0].innerHTML=element;
         }
-        render();
+        // render();
 
         function deleteProduct(ID){
                 for(let i=0;i<product.length;i++){
@@ -293,6 +412,10 @@
         }
 
         function edit(ID){
+            const VND = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+            });
             localStorage.setItem('id',ID);
             console.log(localStorage.setItem('id',ID));
             document.getElementsByClassName('add')[0].innerHTML='Save Edit';
@@ -303,15 +426,47 @@
                     document.getElementById('brand').value=product[i].brand;
                     document.getElementById('picture').value=product[i].picture;
                     document.getElementById('detail').value=product[i].detail;
+                    document.getElementById('all').value=product[i].all
                 }
             }
         }
         
-       
+        /* *******************************user************************** */
+        function manage() {
+            let users=JSON.parse(localStorage.getItem('users'))||[];
+            let element='';
+            document.getElementsByClassName('renderUser')[0].style.display='block';
 
+            document.getElementsByClassName('render__layout')[0].style.display='none';
+            document.getElementsByClassName('overflow')[0].style.display='none';
 
-
-        /* **************thêm hình****************** */
+            for(let i=0 ;users.length;i++){
+                element+=
+                `
+                            <div class="maneger">
+                                <div>${users[i].idUser}</div>
+                                <div>${users[i].email}</div>
+                                <div>${users[i].username}</div>
+                                <div >
+                                    <span onclick='deleteUser(${users[i].idUser})'>Xóa</span>
+                                </div>
+                            </div>
+                            <hr>
+                `
+                document.getElementsByClassName('renderUser')[0].innerHTML=element;
+            }   
+        }
+        /* ***********************************xóa user************************** */
+        function deleteUser(id){
+            let users=JSON.parse(localStorage.getItem('users'))||[];
+            for(let i=0;i<users.length;i++){
+                if(users[i].idUser==id){
+                    users.splice(i,1);
+                }
+            }
+            localStorage.setItem('users',JSON.stringify(users));
+            manage()
+        }
 
     </script>
 
