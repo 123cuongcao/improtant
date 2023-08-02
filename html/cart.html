@@ -527,7 +527,7 @@
                 
                 <!-- login register -->
                 <ul class="loginRegister">
-                    <li><a href="./html/login.html">Đăng nhập</a></li>
+                    <li><a href="./login.html">Đăng nhập</a></li>
                     <li><a href="register.html">Đăng ký</a></li>
                 </ul>
                 <div onclick="logoutConfirmation()" class="thoat">Logout</div>
@@ -627,7 +627,7 @@
                 <div class="sumOutPut"></div>
             </div>
             
-            <div onclick="checkOut()" class="checkout"> 
+            <div onclick="buyConfirmation()" class="checkout"> 
                 Checkout
             </div>
         </div>
@@ -832,7 +832,8 @@ function remove(id){
             if(checkLogin==users[i].idUser){
                 for(let j=0;j<users[i].cart.length;j++){
                     if(users[i].cart[j].id==id){
-                        if(users[i].cart[j].quantity>nowProduct){
+                        if(users[i].cart[j].quantity>nowProduct-1){
+                          console.log('1111');
                             myFunction('Số lượng trong kho không đủ')
                             return;
                         }
@@ -905,8 +906,8 @@ function remove(id){
         }
         localStorage.setItem('product',JSON.stringify(product));
         localStorage.setItem('users',JSON.stringify(users));
-        rendercart()
         myFunction('Cảm ơn bạn đã mua hàng')
+        rendercart()
     }
 /* ********************************************myfunction***************************** */
     function myFunction(text) {
@@ -926,7 +927,7 @@ function remove(id){
 
         function logOut(){
         localStorage.removeItem("checkLogin");
-        window.location.reload();
+        window.location.href='../html/login.html';
         document.getElementsByClassName('loginRegister')[0].style.display='block';
         document.getElementsByClassName('thoat')[0].style.display='block';
         
@@ -976,6 +977,37 @@ function remove(id){
     confirmButton.textContent = "Xác nhận";
     confirmButton.onclick = function () {
     logOut()
+      alertBox.remove();
+    };
+
+    let cancelButton = document.createElement("button");
+    cancelButton.textContent = "Hủy";
+    cancelButton.onclick = function () {
+      alertBox.remove();
+    };
+
+    alertBox.appendChild(heading);
+    alertBox.appendChild(message);
+    alertBox.appendChild(confirmButton);
+    alertBox.appendChild(cancelButton);
+
+    // Thêm hộp thông báo vào trang
+    document.body.appendChild(alertBox);
+  }
+
+/* *************************thanh toán comfirm************************** */
+  function buyConfirmation(){
+    let alertBox = document.createElement("div");
+    alertBox.classList.add("alert-box");
+    let heading = document.createElement("h2");
+    heading.textContent = "Xác nhận thanh toán";
+    let message = document.createElement("p");
+    message.textContent = "Bạn có muốn thanh toán?";
+
+    let confirmButton = document.createElement("button");
+    confirmButton.textContent = "Xác nhận";
+    confirmButton.onclick = function () {
+      checkOut()
       alertBox.remove();
     };
 

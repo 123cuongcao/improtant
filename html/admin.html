@@ -1,308 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- <link rel="stylesheet" href="../css/products.css"> -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <!-- <link rel="stylesheet" href="../css/products.css"> -->
-    
-</head>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .overflow div{
-        display: flex;
-        text-align: center;
-        align-items: center;
-        padding:20px 10px;
+    .overflow div {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      padding: 20px 10px;
     }
-    .content{
-        width: 100%;
+    .content {
+      width: 100%;
     }
-    .container{
-        display:flex;
-        justify-content: center;
-        align-items: flex-start;
-        
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
     }
-    .overflow{
-        width: 300px;
-        height: 755px;
-        border: 1px solid #dadae5;
-        border-radius: 5px;
-        background-color:rgba(255, 180, 0,0.4);
-        position: sticky;
-        top:0px;
+    .overflow {
+      width: 300px;
+      height: 755px;
+      border: 1px solid #dadae5;
+      border-radius: 5px;
+      background-color: rgba(255, 180, 0, 0.4);
+      position: sticky;
+      top: 0px;
     }
-    .products{
-        border: 1px solid #dadae5;
-        border-radius: 5px;
-        
+    .products {
+      border: 1px solid #dadae5;
+      border-radius: 5px;
     }
-    .name img{
-        height: 90px;
+    .name img {
+      height: 90px;
     }
-    h1{
-        font-family:  condensed;
-        font-size: 32px;
-        font-weight: 700;
-        line-height: 38px;
-        padding: 8px 0px;
+    h1 {
+      font-family: condensed;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 38px;
+      padding: 8px 0px;
     }
-    .name{
-        padding: 12px 0px;
-        margin-left: 30px;
-        width: 1200px;
+    .name {
+      padding: 12px 0px;
+      margin-left: 30px;
+      width: 1200px;
     }
-    .detail{
-        display: flex;
+    .detail {
+      display: flex;
     }
-    .detail p{
-        margin-left: 20px;
-        font-family: Roboto;
+    .detail p {
+      margin-left: 20px;
+      font-family: Roboto;
     }
-    .render h2{
-        font-family: condensed;
-        font-size: 26px;
-        font-weight: 700;
-        line-height: 32px;
-        padding: 8px 0px;
-        margin-top: 32px;
+    .render h2 {
+      font-family: condensed;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 32px;
+      padding: 8px 0px;
+      margin-top: 32px;
     }
-    hr{
-        opacity: 0.3;
+    hr {
+      opacity: 0.3;
     }
-    .btn{
-        align-items: flex-start;
-        border-radius: 4px;
-        color: #ffb400;
-        display: inline-block;
-        font-family: Roboto;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 20px;
-        margin: 12px 0px 0px;
-        padding: 10px 16px;
-        text-align: center;
-        border: 1px solid #ffb400 ;
+    .btn {
+      align-items: flex-start;
+      border-radius: 4px;
+      color: #ffb400;
+      display: inline-block;
+      font-family: Roboto;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      margin: 12px 0px 0px;
+      padding: 10px 16px;
+      text-align: center;
+      border: 1px solid #ffb400;
     }
-    .edit{
-        align-items: flex-start;
-        border-radius: 4px;
-        color: #ffb400;
-        display: inline-block;
-        font-family: Roboto;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 20px;
-        margin: 12px 0px 0px;
-        padding: 10px 16px;
-        text-align: center;
-        border: 1px solid #ffb400 ;
+    .edit {
+      align-items: flex-start;
+      border-radius: 4px;
+      color: #ffb400;
+      display: inline-block;
+      font-family: Roboto;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      margin: 12px 0px 0px;
+      padding: 10px 16px;
+      text-align: center;
+      border: 1px solid #ffb400;
     }
-    .item{
-        background-color: #ffffff;
-        border-radius: 4px;
-        box-shadow: #f0f0f0 0px 0px 0px 2px;
+    .item {
+      background-color: #ffffff;
+      border-radius: 4px;
+      box-shadow: #f0f0f0 0px 0px 0px 2px;
     }
-    .render__layout{
-        display: grid;
-        gap:20px;
-        grid-template-columns:280px 280px 280px 280px;
-        padding: 8px 0px;
+    .render__layout {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 280px 280px 280px 280px;
+      padding: 8px 0px;
     }
-    .item img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .item div {
-        display: flex;
-        justify-content: center;
-    } 
-    .item .brand{
-        display: block;
-        margin-left: 20px;
-    }  
-    .overflow input{
-        width: 280px;
-        font-size: 20px;
-        font-family:  condensed;
-        padding: 5px;
-        border-radius: 5px;
-        
+      display: flex;
+      justify-content: center;
     }
-    .overflow{
-        font-size: 25px
-    
+    .item .brand {
+      display: block;
+      margin-left: 20px;
     }
-    .textarea{
-        width: 280px;
+    .overflow input {
+      width: 280px;
+      font-size: 20px;
+      font-family: condensed;
+      padding: 5px;
+      border-radius: 5px;
     }
-    .overflow div{
-        padding: 10px;
+    .overflow {
+      font-size: 25px;
     }
-    .add{
-        border: 1px solid black;
-        background-color:aquamarine;
-        padding: 10px;
-        text-align: center;
-        inline-size: 180px;
-        margin-left: 45px;
-        /* margin-top: 15px; */
+    .textarea {
+      width: 280px;
     }
-    .brand{
-        font-size: 15px;
+    .overflow div {
+      padding: 10px;
     }
-    .ten{
-        font-size: 20px;
-        font-weight: 700;
+    .add {
+      border: 1px solid black;
+      background-color: aquamarine;
+      padding: 10px;
+      text-align: center;
+      inline-size: 180px;
+      margin-left: 45px;
+      /* margin-top: 15px; */
     }
-    .price{
-        color: #576b95;
+    .brand {
+      font-size: 15px;
     }
-    .item{
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-        padding: 12px;
+    .ten {
+      font-size: 20px;
+      font-weight: 700;
     }
-    .users{
-        width:100%;
-        display:flex;
-        justify-content:center;
-        /* margin-left: 90px; */
-        /* inline-size:180px; */
-        /* text-align: center; */
-        text-align: center;
-        align-items: center;
+    .price {
+      color: #576b95;
     }
-    .manageuser{
-        margin-right: 16px;
-        border-radius: 10px;
-        background-color:rgb(5, 80, 185);
-        width: 100%;
-        display: block;
-        padding: 20px;
-        color: white;
-        font-weight: 700;
+    .item {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      padding: 12px;
+    }
+    .users {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      /* margin-left: 90px; */
+      /* inline-size:180px; */
+      /* text-align: center; */
+      text-align: center;
+      align-items: center;
+    }
+    .manageuser {
+      margin-right: 16px;
+      border-radius: 10px;
+      background-color: rgb(5, 80, 185);
+      width: 100%;
+      display: block;
+      padding: 20px;
+      color: white;
+      font-weight: 700;
     }
     main {
-flex: 3;
-padding: 10px;
+      flex: 3;
+      padding: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    table th {
+      background-color: #a74949;
+      color: #fff;
+    }
+
+    .maneger {
+      display: flex;
+      justify-content: space-around;
+      padding: 30px;
+      font-size: 20px;
+    }
+    span {
+      padding: 10px 15px;
+      background-color: #bc8282;
+      border-radius: 5px;
+    }
+    .retype {
+      display: flex;
+    }
+    .retypeContainer {
+      margin-left: 34%;
+      display: block;
+    }
+    .retype input {
+      padding: 10px;
+      width: 200px;
+    }
+
+    .qlsp {
+      background-color: #db6525;
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      padding: 20px 0;
+      color: white;
+      font-weight: 700;
+      border-radius: 10px;
+    }
+    /* ******************* confirm******************************/
+    .alert-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e2c2c2;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
 }
 
-table {
-width: 100%;
-border-collapse: collapse;
+.alert-box h2 {
+  margin-top: 0;
 }
 
-table th, table td {
-border: 1px solid #ccc;
-padding: 10px;
+.alert-box button {
+  margin-right: 10px;
 }
-
-table th {
-background-color: #a74949;
-color: #fff;
-}
-
-.maneger{
+.cartBtn{
+    
+    width: 30px;
+    height: 30px;
     display: flex;
-    justify-content: space-around;
-    padding: 30px;
-    font-size: 20px;
-}
-span{
-    padding: 10px 15px;
-    background-color: #bc8282;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
 }
-.retype{
-    display: flex;
+.cartBtn:hover{
+    background-color: chocolate;
 }
-.retypeContainer{
-    margin-left: 34%;
-    display: block;
-}
-.retype input{
-    padding: 10px;
-    width: 200px;
-}
-
-.qlsp{
-    background-color: #db6525;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    padding: 20px 0;
-    color: white;
-    font-weight: 700;
-    border-radius: 10px;
-    
-}
-</style>
-<body>
-
+  </style>
+  <body>
     <section>
-        <div class="content">
-            <div class="container">
-    
-                <div class="overflow">
-                    <div for="">Tên sản phẩm</div>
-                    <input type="text" id="name">
+      <div class="content">
+        <div class="container">
+          <div class="overflow">
+            <div for="">Tên sản phẩm</div>
+            <input type="text" id="name" />
 
-                    <div for="">Giá</div>
-                    <input type="nunber" id="price">
+            <div for="">Giá</div>
+            <input type="nunber" id="price" />
 
-                    <div for="">Hãng</div>
+            <div for="">Hãng</div>
 
-                    <select name="" id="brand">
-                        <option value="BMW">BMW</option>
-                        <option value="Benelli">Benelli</option>
-                        <option value="KTM">KTM</option> 
-                        <option value="Kawasaki">Kawasaki</option>
+            <select name="" id="brand">
+              <option value="BMW">BMW</option>
+              <option value="Benelli">Benelli</option>
+              <option value="KTM">KTM</option>
+              <option value="Kawasaki">Kawasaki</option>
+            </select>
 
-                    </select>
+            <div>Số lượng</div>
+            <input id="all" type="number" />
 
-                    <div>Số lượng</div>
-                    <input id="all" type="number">
+            <div for="">Hình</div>
+            <input
+              type="text"
+              placeholder="../images/img/img6.jpg"
+              id="picture"
+            />
 
-                    <div for="">Hình</div>
-                    <input type="text"  placeholder="../images/img/img6.jpg" id="picture">
+            <div for="">Mô tả sản phẩm</div>
+            <textarea
+              class="textarea"
+              name=""
+              id="detail"
+              cols="30"
+              rows="10"
+            ></textarea>
 
-                    <div for="">Mô tả sản phẩm</div>
-                    <textarea class="textarea" name="" id="detail" cols="30" rows="10"></textarea>
+            <div onclick="renderManegerProduct()" class="add">
+              Thêm sản phẩm
+            </div>
 
-                    <div onclick="renderManegerProduct()" class="add">Thêm sản phẩm</div>
+            <div><a href="../html/products.html">Về trang sản phẩm</a></div>
+          </div>
 
-                    <div><a href="../html/products.html">Về trang sản phẩm</a></div>
-                    
+          <div class="products">
+            <div class="name">
+              <div style="display: flex">
+                <div style="width: 100%">
+                  <div onclick="render()" class="qlsp">Quản lý sản phẩm</div>
                 </div>
-                
-                <div class="products" >
-                    <div class="name">
-                        <div style="display: flex;">
-                            
-                            <div style="width: 100%;">
-                                <div onclick="render()" class="qlsp">Quản lý sản phẩm</div>
-                            </div>
-                          
-                            <div class="users"><div onclick="manage()" class="manageuser">Quản lý users</div></div>
-                        </div>
 
-                        <div class="render">
+                <div class="users">
+                  <div onclick="manage()" class="manageuser">Quản lý users</div>
+                </div>
+              </div>
 
-                            <div class="render__layout ">
-                            </div>
-                        </div>
+              <div class="render">
+                <div class="render__layout"></div>
+              </div>
 
-                        <div class="renderUser">
-                            <!-- <div class="maneger">
+              <div class="renderUser">
+                <!-- <div class="maneger">
                                 <div>Id</div>
                                 <div>Gmail</div>
                                 <div>User</div>
@@ -311,165 +348,235 @@ span{
                                     <span>Sửa</span>
                                 </div>
                             </div> -->
-                        </div>
- 
-
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
     <script>
-        function createId() {
-            return Math.floor(Math.random() * 9999999999999 + new Date().getMilliseconds())
-        }
+      function createId() {
+        return Math.floor(
+          Math.random() * 9999999999999 + new Date().getMilliseconds()
+        );
+      }
 
-        let product=JSON.parse(localStorage.getItem('product'))||[]
+      let product = JSON.parse(localStorage.getItem("product")) || [];
 
-        function renderManegerProduct(){
-            let name=document.getElementById('name').value;
-            let price=document.getElementById('price').value;
-            let brand=document.getElementById('brand').value;
-            let picture =document.getElementById('picture').value;
-            let detail=document.getElementById('detail').value;
-            let all=document.getElementById('all').value;
-            
-            let productItem={
-                name:name,
-                price:price,
-                brand:brand,
-                picture:picture,
-                detail:detail,
-                id:createId(),
-                all:all,
-                quantity:1
+      function renderManegerProduct() {
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let brand = document.getElementById("brand").value;
+        let picture = document.getElementById("picture").value;
+        let detail = document.getElementById("detail").value;
+        let all = document.getElementById("all").value;
+
+        let productItem = {
+          name: name,
+          price: price,
+          brand: brand,
+          picture: picture,
+          detail: detail,
+          id: createId(),
+          all: all,
+          quantity: 1,
+        };
+
+        let checkId = localStorage.getItem("id");
+        console.log(checkId);
+        if (checkId) {
+          for (let i = 0; i < product.length; i++) {
+            if (product[i].id == checkId) {
+              product.splice(i, 1, { ...productItem, id: checkId });
+              localStorage.setItem("product", JSON.stringify(product));
+              render();
+              localStorage.removeItem("id");
+              document.getElementsByClassName("add")[0].innerHTML =
+                "Thêm sản phẩm";
+              return;
             }
-            
-            let checkId=localStorage.getItem('id');
-            console.log(checkId);
-            if(checkId){
-                for(let i=0;i<product.length;i++){
-                    if(product[i].id==checkId){
-                        product.splice(i,1,{...productItem,id:checkId});
-                        localStorage.setItem('product',JSON.stringify(product));
-                        render();
-                        localStorage.removeItem('id');
-                        document.getElementsByClassName('add')[0].innerHTML='Thêm sản phẩm'
-                        return;
-                    }
-                }
-            }
-                product.push(productItem);
-                localStorage.setItem('product',JSON.stringify(product));
-                render();
-            
+          }
         }
+        product.push(productItem);
+        localStorage.setItem("product", JSON.stringify(product));
+        render();
+      }
 
-        function render(){
-            document.getElementsByClassName('overflow')[0].style.display='block';
-            document.getElementsByClassName('render__layout')[0].style.display='grid';
-            document.getElementsByClassName('renderUser')[0].style.display='none';
+      function render() {
+        document.getElementsByClassName("overflow")[0].style.display = "block";
+        document.getElementsByClassName("render__layout")[0].style.display =
+          "grid";
+        document.getElementsByClassName("renderUser")[0].style.display = "none";
 
-            
-
-
-            
-            
-            const VND = new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND',
-            });
-            product = JSON.parse(localStorage.getItem('product'))||[]
-            let element=''
-            for(let i=0 ;i <product.length;i++){
-                element+=
-                `
+        const VND = new Intl.NumberFormat("vi-VN", {
+          style: "currency",
+          currency: "VND",
+        });
+        product = JSON.parse(localStorage.getItem("product")) || [];
+        let element = "";
+        for (let i = 0; i < product.length; i++) {
+          element += `
                                 <div class="render__container">
                                     <div class="item">
                                         <div> Số lượng: ${product[i].all}</div>
-                                        <img  src="${product[i].picture}" alt="">
-                                        <div class="brand">${product[i].brand}</div>
-                                        <div class='ten'>${product[i].name}</div>
-                                        <div class='price'>${VND.format(product[i].price)}</div>
-                                        <div onclick='deleteProduct(${product[i].id})' class="btn">Xóa</div>
-                                        <div onclick='edit(${product[i].id})' class="edit">Sửa</div>
+                                        <img  src="${
+                                          product[i].picture
+                                        }" alt="">
+                                        <div class="brand">${
+                                          product[i].brand
+                                        }</div>
+                                        <div class='ten'>${
+                                          product[i].name
+                                        }</div>
+                                        <div class='price'>${VND.format(
+                                          product[i].price
+                                        )}</div>
+                                        <div onclick='deleteproductConfirmation(${
+                                          product[i].id
+                                        })' class="btn">Xóa</div>
+                                        <div onclick='edit(${
+                                          product[i].id
+                                        })' class="edit">Sửa</div>
                                     </div>
                                 </div>
-                `
-            }
-            document.getElementsByClassName('render__layout')[0].innerHTML=element;
+                `;
         }
-        // render();
-
-        function deleteProduct(ID){
-                for(let i=0;i<product.length;i++){
-                    if(product[i].id==ID){
-                        product.splice(i,1);
-                        localStorage.setItem('product',JSON.stringify(product));
-                        render();
-                    }
-                }
+        document.getElementsByClassName("render__layout")[0].innerHTML =
+          element;
+      }
+      // render();
+/* ************************************************************************* */
+      function deleteProduct(ID) {
+        for (let i = 0; i < product.length; i++) {
+          if (product[i].id == ID) {
+            product.splice(i, 1);
+            localStorage.setItem("product", JSON.stringify(product));
+            render();
+          }
         }
-
-        function edit(ID){
-            const VND = new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND',
-            });
-            localStorage.setItem('id',ID);
-            console.log(localStorage.setItem('id',ID));
-            document.getElementsByClassName('add')[0].innerHTML='Save Edit';
-            for(let i=0;i<product.length;i++){
-                if(product[i].id==ID){
-                    document.getElementById('name').value=product[i].name;
-                    document.getElementById('price').value=product[i].price;
-                    document.getElementById('brand').value=product[i].brand;
-                    document.getElementById('picture').value=product[i].picture;
-                    document.getElementById('detail').value=product[i].detail;
-                    document.getElementById('all').value=product[i].all
-                }
-            }
+      }
+/* ********************************************************************** */
+      function edit(ID) {
+        const VND = new Intl.NumberFormat("vi-VN", {
+          style: "currency",
+          currency: "VND",
+        });
+        localStorage.setItem("id", ID);
+        console.log(localStorage.setItem("id", ID));
+        document.getElementsByClassName("add")[0].innerHTML = "Save Edit";
+        for (let i = 0; i < product.length; i++) {
+          if (product[i].id == ID) {
+            document.getElementById("name").value = product[i].name;
+            document.getElementById("price").value = product[i].price;
+            document.getElementById("brand").value = product[i].brand;
+            document.getElementById("picture").value = product[i].picture;
+            document.getElementById("detail").value = product[i].detail;
+            document.getElementById("all").value = product[i].all;
+          }
         }
-        
-        /* *******************************user************************** */
-        function manage() {
-            let users=JSON.parse(localStorage.getItem('users'))||[];
-            let element='';
-            document.getElementsByClassName('renderUser')[0].style.display='block';
+      }
 
-            document.getElementsByClassName('render__layout')[0].style.display='none';
-            document.getElementsByClassName('overflow')[0].style.display='none';
+      /* *******************************user************************** */
+      function manage() {
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        let element = "";
+        document.getElementsByClassName("renderUser")[0].style.display =
+          "block";
 
-            for(let i=0 ;users.length;i++){
-                element+=
-                `
+        document.getElementsByClassName("render__layout")[0].style.display =
+          "none";
+        document.getElementsByClassName("overflow")[0].style.display = "none";
+
+        for (let i = 0; i<users.length; i++) {
+            console.log(users[i].idUser);
+          element += `
                             <div class="maneger">
                                 <div>${users[i].idUser}</div>
                                 <div>${users[i].email}</div>
                                 <div>${users[i].username}</div>
                                 <div >
-                                    <span onclick='deleteUser(${users[i].idUser})'>Xóa</span>
+                                    <span onclick='deleteuserConfirmation(${users[i].idUser})'>Xóa</span>
                                 </div>
                             </div>
                             <hr>
-                `
-                document.getElementsByClassName('renderUser')[0].innerHTML=element;
-            }   
+                `;
+                document.getElementsByClassName("renderUser")[0].innerHTML = element;
         }
-        /* ***********************************xóa user************************** */
-        function deleteUser(id){
-            let users=JSON.parse(localStorage.getItem('users'))||[];
-            for(let i=0;i<users.length;i++){
-                if(users[i].idUser==id){
-                    users.splice(i,1);
-                }
-            }
-            localStorage.setItem('users',JSON.stringify(users));
-            manage()
+        
+      }
+      /* ***********************************xóa user************************** */
+      function deleteUser(id) {
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].idUser == id) {
+            users.splice(i, 1);
+          }
         }
+        localStorage.setItem("users", JSON.stringify(users));
+        manage();
+      }
 
+      /* **************************************************** */
+      function deleteuserConfirmation(id) {
+        let alertBox = document.createElement("div");
+        alertBox.classList.add("alert-box");
+        let heading = document.createElement("h2");
+        heading.textContent = "Xác nhận xóa user";
+        let message = document.createElement("p");
+        message.textContent = "Bạn có muốn xóa?";
+
+        let confirmButton = document.createElement("button");
+        confirmButton.textContent = "Xác nhận";
+        confirmButton.onclick = function () {
+            deleteUser(id);
+          alertBox.remove();
+        };
+
+        let cancelButton = document.createElement("button");
+        cancelButton.textContent = "Hủy";
+        cancelButton.onclick = function () {
+          alertBox.remove();
+        };
+
+        alertBox.appendChild(heading);
+        alertBox.appendChild(message);
+        alertBox.appendChild(confirmButton);
+        alertBox.appendChild(cancelButton);
+
+        // Thêm hộp thông báo vào trang
+        document.body.appendChild(alertBox);
+      }
+
+      /* ***************************************************** */
+      function deleteproductConfirmation(ID) {
+        let alertBox = document.createElement("div");
+        alertBox.classList.add("alert-box");
+        let heading = document.createElement("h2");
+        heading.textContent = "Xác nhận xóa ";
+        let message = document.createElement("p");
+        message.textContent = "Bạn có muốn xóa?";
+
+        let confirmButton = document.createElement("button");
+        confirmButton.textContent = "Xác nhận";
+        confirmButton.onclick = function () {
+            deleteProduct(ID);
+          alertBox.remove();
+        };
+
+        let cancelButton = document.createElement("button");
+        cancelButton.textContent = "Hủy";
+        cancelButton.onclick = function () {
+          alertBox.remove();
+        };
+
+        alertBox.appendChild(heading);
+        alertBox.appendChild(message);
+        alertBox.appendChild(confirmButton);
+        alertBox.appendChild(cancelButton);
+
+        // Thêm hộp thông báo vào trang
+        document.body.appendChild(alertBox);
+      }
     </script>
-
-
-</body>
+  </body>
 </html>
